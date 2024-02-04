@@ -1,9 +1,10 @@
-console.log('compile me32');
-
-const yolo = {};
-enum Choices {
-  YES = 1,
-  NO = 2
+interface Todo {
+  title: string
 }
-debugger
-console.log(Choices.NO);
+
+console.log('hello')
+
+import { a } from './test.js'
+
+a()
+
