@@ -1,4 +1,64 @@
-#list {
-    list-style-type: none;
-    padding: 0;;
+/* CSS reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+/* Custom variables */
+:root {
+  --btn-bkg-clr: blue;
+  --btn-clr: white;
+}
+
+/* Container */
+.container {
+  background-color: rgb(36, 113, 213);
+  height: 100vh;
+  width: 100vw;
+}
+
+#list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.input-section {
+  padding: 10px;
+  background-color: white;
+  max-width: 15rem;
+  margin-bottom: 2rem;
+}
+
+#new-task-title {
+  padding: 10px;
+  margin: 10px;
+}
+
+#add-btn {
+  background-color: var(--btn-bkg-clr);
+  color: var(--btn-clr);
+}
+
+/* --------------- */
+
+.notes-section {
+  background-color: white;
+  max-width: 12rem;
+  display: flex;
+  flex-direction: colun;
+  align-items: center;
+  
+}
+
+#delete-btn {
+  background-color: var(--btn-bkg-clr);
+  color: var(--btn-clr);
+}
+
+
