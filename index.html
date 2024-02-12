@@ -1,31 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>To Do</title>
-    <link rel="stylesheet" href="/src/style.css" />
-    <script type="module" src="/src/main.ts" defer></script>
-  </head>
-  <body>
-    <div class="container">
-      <div class="input-section">
-        <form action="" id="new-task-form">
-          <input type="" id="new-task-title" />
-          <button type="submit" id="add-btn">Add</button>
-        </form>
-      </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TO-FO</title>
+  <script type="module" src="/src/main.ts" defer></script>
 
-      <div class="notes-section">
-        <template id="note-card-template">
-          <div class="note-card">
-            <input type="checkbox" class="checkbox" />
-            <div class="note">Notatet</div>
-            <button type="button" id="delete-btn"></button>
-          </div>
-        </template>
-      </div>
-    </div>
-  </body>
+</head>
+<body>
+  <ul id="list"></ul>
+
+  <form action="" id="new-task-form">
+    <input type="text" id="new-task-title">
+    <button type="submit">add</button>
+  </form>
+</body>
 </html>
