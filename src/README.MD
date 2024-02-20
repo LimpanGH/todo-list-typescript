@@ -1,5 +1,5 @@
 TO-Do
- https://chasacademy.instructure.com/courses/289/assignments/1508?module_item_id=7631
+https://chasacademy.instructure.com/courses/289/assignments/1508?module_item_id=7631
 
 # Om uppgiften
 
@@ -48,3 +48,10 @@ En länk till ditt repository som ska vara publikt, innehållandes all kod + en 
 - UUID: https://www.npmjs.com/package/uuid
 - Installed this to make uuid work: npm i --save-dev @types/uuid
 -
+
+# Kvar:
+
+- Visa inte tom vit ruta om inga tasks finns
+- Ändra så att inte label togglar checkbox
+- Lägg till valfri funktion
+- Resonera i README-filen

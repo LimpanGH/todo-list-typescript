@@ -1,5 +1,4 @@
-CSS reset
-*,
+CSS reset *,
 *::before,
 *::after {
   box-sizing: border-box;
@@ -14,25 +13,41 @@ CSS reset
 :root {
   --btn-bkg-clr: blue;
   --btn-clr: white;
+  --border: none;
+  --border-radius: 3px;
+  --task-bkg-color: rgb(183, 215, 243);
 }
 
+/* ------------------------------------------ */
+
 /* Container */
-.container {
+#container {
   background-color: rgb(36, 113, 213);
   height: 100vh;
   width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-#list {
-  list-style-type: none;
-  padding: 0;
-}
-
-.input-section {
-  padding: 10px;
+#new-task-form {
   background-color: white;
-  max-width: 15rem;
-  margin-bottom: 2rem;
+  width: 40rem;
+  margin-bottom: 3rem;
+  border-radius: 5px;
+}
+
+#new-task-title {
+  background-color: white;
+  border-radius: var(--border-radius);
+}
+
+.task {
+  width: 30rem;
+  background-color: var(--task-bkg-color);
+  border-radius: 5px;
+  list-style: none;
 }
 
 #new-task-title {
@@ -40,25 +55,48 @@ CSS reset
   margin: 10px;
 }
 
-#add-btn {
+button {
   background-color: var(--btn-bkg-clr);
   color: var(--btn-clr);
+  border: var(--border);
+  border-radius: var(--border-radius);
+  padding: 3px;
 }
 
-/* --------------- */
+.remove-btn span {
+  display: block;
+  transform: rotate(45deg) scale(1.5);
+}
 
-.notes-section {
-  background-color: white;
-  max-width: 12rem;
+#deleteAllTasksButton {
+  background-color: red;
+  margin-top: 3rem;
+  padding: 6px;
+}
+
+.task-title {
+  flex-grow: 1;
+}
+
+label {
+  width: 100%;
   display: flex;
-  flex-direction: colun;
   align-items: center;
-  
+  gap: 0.6rem;
 }
 
-#delete-btn {
-  background-color: var(--btn-bkg-clr);
-  color: var(--btn-clr);
+li {
+  padding: 0.5rem 1rem;
+  display: flex;
 }
 
+.task-containter {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 5px;
+}
 
+li.task {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

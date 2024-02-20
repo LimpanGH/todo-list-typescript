@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TO-FO</title>
-  <script type="module" src="/src/main.ts" defer></script>
-
-</head>
-<body>
-  <ul id="list"></ul>
-
-  <form action="" id="new-task-form">
-    <input type="text" id="new-task-title">
-    <button type="submit">add</button>
-  </form>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TO-DO</title>
+    <link rel="stylesheet" href="/src/style.css" />
+    <script type="module" src="/src/main.ts" defer></script>
+  </head>
+  <body>
+    <div id="container">
+      <form action="" id="new-task-form">
+        <input type="text" id="new-task-title" />
+        <button type="submit">add</button>
+      </form>
+      <div class="task-containter">
+      <ul class="list"></ul>
+    </div>
+    </div>
+  </body>
 </html>
