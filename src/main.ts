@@ -69,7 +69,7 @@ form?.addEventListener('submit', (e) => {
   input.value = '';
 });
 
-// Adding tasks
+// Adding tasks -------------------
 function addListItem(task: Task) {
   taskContainer?.classList.remove('hide-task-container');
   const item = document.createElement('li');
@@ -92,6 +92,7 @@ function addListItem(task: Task) {
     saveTasks();
   });
 
+// Edit-button -------------------
   const editButton = document.createElement('button');
   editButton.textContent = 'Edit';
   editButton.className = 'editButton';
@@ -106,6 +107,7 @@ function addListItem(task: Task) {
     }
   });
 
+  // Remove-button -------------------
   const removeButton = document.createElement('button');
   const plusSpan = document.createElement('span');
   plusSpan.textContent = '+';
@@ -139,6 +141,8 @@ function saveTasks() {
   localStorage.setItem('TASKS', JSON.stringify(tasks));
 }
 
+
+// Load-task
 function loadTasks(): Task[] {
   const taskJson = localStorage.getItem('TASKS');
   if (taskJson == null) {
