@@ -11,9 +11,28 @@ const list = document.querySelector<HTMLUListElement>('.list');
 const form = document.querySelector<HTMLFormElement>('#new-task-form');
 const input = document.querySelector<HTMLInputElement>('#new-task-title');
 
+const taskContainer = document.querySelector<HTMLDivElement>('.task-container');
+
 const deleteAllTasksButton = document.createElement('button');
 deleteAllTasksButton.id = 'deleteAllTasksButton';
 deleteAllTasksButton.textContent = 'Delete All Tasks';
+
+function checkEmptyListAndHideContainer() {
+  const li = document.querySelectorAll<HTMLLIElement>('li');
+  const taskContainer =
+    document.querySelector<HTMLDivElement>('.task-container');
+
+  if (!li || li.length === 0) {
+    taskContainer?.classList.add('hide-task-container');
+  } else {
+    taskContainer?.classList.remove('hide-task-container');
+  }
+}
+
+deleteAllTasksButton.addEventListener('click', () => {
+  deleteAllTasks();
+  checkEmptyListAndHideContainer();
+});
 
 const container = document.querySelector<HTMLDivElement>('#container');
 if (container) {
@@ -31,7 +50,6 @@ const deleteAllTasks = () => {
 deleteAllTasksButton.addEventListener('click', deleteAllTasks);
 
 let tasks: Task[] = loadTasks();
-tasks.forEach(addListItem);
 
 form?.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -40,7 +58,7 @@ form?.addEventListener('submit', (e) => {
 
   const newTask: Task = {
     id: uuidV4(),
-    title: input.value,
+    title: input.value.replace(/\n/g, '<br>'),
     completed: false,
     createdAt: new Date(),
   };
@@ -51,7 +69,9 @@ form?.addEventListener('submit', (e) => {
   input.value = '';
 });
 
+// Adding tasks
 function addListItem(task: Task) {
+  taskContainer?.classList.remove('hide-task-container');
   const item = document.createElement('li');
   const label = document.createElement('label');
   const checkbox = document.createElement('input');
@@ -64,7 +84,7 @@ function addListItem(task: Task) {
 
   const titleSpan = document.createElement('span');
   titleSpan.className = 'task-title';
-  titleSpan.textContent = task.title;
+  titleSpan.innerHTML = task.title;
   titleSpan.contentEditable = 'false';
 
   titleSpan.addEventListener('input', () => {
@@ -94,11 +114,18 @@ function addListItem(task: Task) {
   removeButton.addEventListener('click', () => {
     removeTask(task.id);
     item.remove();
+    checkEmptyListAndHideContainer();
   });
 
-  label.append(checkbox, titleSpan, editButton, removeButton);
+  label.appendChild(checkbox);
+  label.appendChild(titleSpan);
+  label.appendChild(editButton);
+  label.appendChild(removeButton);
+
+  label.setAttribute('for', checkbox.id);
+
   item.className = 'task';
-  item.append(label);
+  item.appendChild(label);
 
   list?.append(item);
 }
@@ -114,6 +141,18 @@ function saveTasks() {
 
 function loadTasks(): Task[] {
   const taskJson = localStorage.getItem('TASKS');
-  if (taskJson == null) return [];
-  return JSON.parse(taskJson);
+  if (taskJson == null) {
+    const taskContainer =
+      document.querySelector<HTMLDivElement>('.task-container');
+    taskContainer?.classList.add('hide-task-container');
+    return [];
+  }
+
+  const loadedTasks: Task[] = JSON.parse(taskJson);
+
+  loadedTasks.forEach((task) => {
+    addListItem(task);
+  });
+
+  return loadedTasks;
 }

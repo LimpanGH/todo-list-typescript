@@ -51,7 +51,5 @@ En länk till ditt repository som ska vara publikt, innehållandes all kod + en 
 
 # Kvar:
 
-- Visa inte tom vit ruta om inga tasks finns
-- Ändra så att inte label togglar checkbox
 - Lägg till valfri funktion
 - Resonera i README-filen

@@ -1,3 +1,4 @@
+/* CSS reset ------------------ */
 CSS reset *,
 *::before,
 *::after {
@@ -9,7 +10,7 @@ CSS reset *,
   margin: 0;
 }
 
-/* Custom variables */
+/* Custom variables ------------------ */
 :root {
   --btn-bkg-clr: blue;
   --btn-clr: white;
@@ -18,9 +19,7 @@ CSS reset *,
   --task-bkg-color: rgb(183, 215, 243);
 }
 
-/* ------------------------------------------ */
-
-/* Container */
+/* Container ------------------ */
 #container {
   background-color: rgb(36, 113, 213);
   height: 100vh;
@@ -51,6 +50,7 @@ CSS reset *,
 }
 
 #new-task-title {
+  width: 70%;
   padding: 10px;
   margin: 10px;
 }
@@ -61,6 +61,11 @@ button {
   border: var(--border);
   border-radius: var(--border-radius);
   padding: 3px;
+}
+
+#add-btn {
+  height: 2.5rem;
+  width: 3.5rem;
 }
 
 .remove-btn span {
@@ -76,6 +81,7 @@ button {
 
 .task-title {
   flex-grow: 1;
+  white-space: pre-wrap;
 }
 
 label {
@@ -90,7 +96,11 @@ li {
   display: flex;
 }
 
-.task-containter {
+.hide-task-container {
+  display: none;
+}
+
+.task-container {
   background-color: white;
   padding: 1rem;
   border-radius: 5px;
@@ -99,4 +109,32 @@ li {
 li.task {
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+/* -------- Media Query ----------- */
+
+@media all and (width < 654px) {
+  .task {
+    width: 20rem;
+  }
+  #new-task-form {
+    width: 27rem;
+    margin-bottom: 3rem;
+    border-radius: 5px;
+  }
+}
+
+@media all and (width < 452px) {
+  .task {
+    width: 15rem;
+  }
+  #new-task-form {
+    width: 20rem;
+    margin-bottom: rem;
+    border-radius: 5px;
+  }
+  #add-btn {
+    height: 1.5rem;
+    width: 2.5rem;
+  }
 }
